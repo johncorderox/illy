@@ -6,6 +6,7 @@
     <li class="collection-item">
       <div class="row">
         <form class="col s12" action="/users" method="POST">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           <div class="row">
             <div class="input-field col s12">
               <input id="email" type="email" class="validate" name="user[password]">
@@ -17,6 +18,11 @@
               <input id="password" type="password" class="validate" name="user[email]">
               <label for="password">Password</label>
             </div>
+          </div>
+          <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+             <i class="material-icons right">send</i>
+           </button>
           </div>
         </form>
       </div>
