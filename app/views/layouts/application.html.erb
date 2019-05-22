@@ -13,6 +13,19 @@
   </head>
   <body>
     <%= yield %>
+    <% if notice %>
+    <% flash.each do |name, messages| %>
+      <div class="alert alert-<%= name %>">
+
+      <ul>
+      <% messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+
+      </div>
+    <% end %>
+  <% end %>
     <%= render "layouts/footer" %>
   </body>
 </html>
