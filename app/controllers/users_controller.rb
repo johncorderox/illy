@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
+
   def index
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def new
@@ -18,5 +20,6 @@ class UsersController < ApplicationController
         flash[:notice] = new_user.errors.full_messages
     end
   end
+
 
 end
