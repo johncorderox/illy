@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_05_22_162653) do
     t.string "email"
     t.string "password_digest"
     t.string "status"
-    t.string "phone_numer"
+    t.string "phone_number"
     t.string "twitter"
     t.text "bio"
     t.boolean "permod"
