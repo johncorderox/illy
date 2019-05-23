@@ -12,18 +12,11 @@
  *
  *= require_tree .
  *= require_self
- *= require material_icons
  */
- @import "materialize";
+ body {
+   background-color: #fafafa;
+ }
 
- nav {
-  @extend .blue-grey
-}
-
-body {
-  @extend .indigo, .lighten-5
-}
-
-.footer {
-  font-size: 6px;
-}
+ .footer {
+   font-size: 10px;
+ }
