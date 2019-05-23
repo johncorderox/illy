@@ -1,50 +1,26 @@
-<div class="container home" id="wrapper">
+<div class="container" id="wrapper">
   <div class="row">
-    <div class="col-s5"></div>
-    <div class="center-align col-s1">
-      <div class="icon">
         <%= image_tag "manager.png" %>
+        <h5><b>illy is a fun, simple site for dates and friends that love Beach House.</b></h5>
+  </div>
+  <div class="row mt-4">
+    <div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Login</h5>
+    <form action="/sessions/new" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <div class="form-group">
+        <input type="email" name="email" class="form-control" placeholder="Email">
       </div>
-      <h5><b>illy is a fun, simple site for dates and friends that love Beach House.</b></h5>
-    </div>
-    <div class="col-s5"></div>
-  </div>
-  <div class="row">
-    <div class="col-s5"></div>
-     <div class="center-align col-s1 links">
-    </div>
-    <div class="col-s5"></div>
-  </div>
-  <div class="row">
-    <ul class="collection with-header">
-      <li class="collection-header">
-        <h4>Login</h4>
-      </li>
-      <li class="collection-item">
-        <div class="row">
-          <form class="col s12">
-            <div class="row">
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="username" type="text" class="validate">
-                  <label for="email">Username</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="password" type="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
-              </div>
-              <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                <i class="material-icons right">send</i>
-              </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li>
-    </ul>
+      <div class="form-group">
+        <input type="password" name="password" class="form-control" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
   </div>
 </div>
+  </div>
+</div>
+<h1>
+  ~~<%= session[:user_id] %><%= current_user.email %>
+</h1>
