@@ -9,13 +9,19 @@
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           <div class="row">
             <div class="input-field col s12">
-              <input id="email" type="email" class="validate" name="user[password]">
+              <input id="username" type="text" class="validate" name="username">
+              <label for="username">Username</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="email" class="validate" name="email">
               <label for="email">Email</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="password" type="password" class="validate" name="user[email]">
+              <input id="password" type="password" class="validate" name="password">
               <label for="password">Password</label>
             </div>
           </div>

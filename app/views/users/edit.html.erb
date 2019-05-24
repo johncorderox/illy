@@ -1,93 +1,95 @@
 <div class="container mt-5">
+  <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href=<%= root_path %>>Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
+  </ol>
+</nav>
+</div>
+<div class="container mt-3">
   <div class="card">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Bio</h5>
-    <p class="card-text">
-      <div class="row">
-        <div class="col-5">
-          <textarea type="text" value="<%= @user.bio %>" class="form-control"></textarea>
+    <form action="/edit/<%= @user.id %>" method="POST">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input name="_method" type="hidden" value="patch" />
+    <div class="col-6">
+          <img src="" class="card-img-top" alt=""><br>
+
+          <%= file_field :avatar, accept: 'image/png,image/jpeg' %>
+    </div>
+    <div class="col-6">
+
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Bio</h5>
+      <p class="card-text">
+        <div class="row">
+          <div class="col-5">
+            <textarea type="text" class="form-control" name="user[bio]"><%= @user.bio %></textarea>
+          </div>
         </div>
-      </div>
-    </p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-      <div class="row">
-      <div class="col-3">
-          Email<input type="email" value="<%= @user.email %>" class="form-control">
-      </div>
-      <div class="col-3">
-          Username<input type="username" value="<%= @user.username %>" class="form-control">
-      </div>
-      <div class="col-4">
-          Phone: <input type="text" value="<%= @user.phone_numer %>" class="form-control">
-      </div>
-      </div>
-      <div class="row mt-3">
-        <div class="col-4">
-          <select name="country" class="countries order-alpha form-control" id="countryId" >
-              <option value="">Select Country</option>
-          </select>
+      </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-3">
+            Email<input type="email" value="<%= @user.email %>" class="form-control" name="user[email]">
+          </div>
+          <div class="col-3">
+            Username<input type="username" value="<%= @user.username %>" class="form-control" name="user[username]">
+          </div>
+          <div class="col-4">
+            Phone:
+            <input type="text" value="<%= @user.phone_number %>" class="form-control" name="user[phone_number]">
+          </div>
         </div>
-        <div class="col-3">
-          <select name="state" class="states order-alpha form-control" id="stateId" >
-              <option value="">Select State</option>
-          </select>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-2">
+            Twitter @<input type="username" value="<%= @user.twitter %>" class="form-control">
+          </div>
+          <div class="col-4">
+            Status:
+            <select class="form-control" name="user[status]">
+              <option>Select a Status...</option>
+              <option>Single</option>
+              <option>Taken</option>
+              <option>Open Relationship</option>
+              <option>It's Complicated</option>
+              <option>Not Looking</option>
+            </select>
+          </div>
+          <div class="col-3">
+            I'm Looking For:
+            <select class="form-control" name="user[looking_for]">
+              <option>What are you looking for?</option>
+              <option>Friends</option>
+              <option>A Relationship</option>
+              <option>True Love</option>
+              <option>A Good Time</option>
+              <option>Anything</option>
+            </select>
+          </div>
         </div>
-        <div class="col-3">
-          <select name="city" class="cities order-alpha form-control" id="cityId" >
-              <option value="">Select City</option>
-          </select>
-        </div>
+      </li>
+    </ul>
+    <div class="card-body">
+      <button type="submit" class="btn btn-info">Update Profile</button>
+      <button type="submit" class="btn btn-info">Delete Profile</button>
+      <div class="form-check form-check-inline ml-3">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+        <label class="form-check-label" for="inlineCheckbox1">Hide your Message Box</label>
       </div>
-    </li>
-    <li class="list-group-item">
-      <div class="row">
-      <div class="col-2">
-          Twitter @<input type="username" value="<%= @user.twitter %>" class="form-control">
+      <div class="form-check form-check-inline ml-3">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+        <label class="form-check-label" for="inlineCheckbox2">Hide Location</label>
       </div>
-      <div class="col-4">
-        Status:
-        <select class="form-control" name="">
-          <option>Select a Status...</option>
-          <option>Single</option>
-          <option>Taken</option>
-          <option>Open Relationship</option>
-          <option>It's Complicated</option>
-          <option>Not Looking</option>
-        </select>
-      </div>
-      <div class="col-3">
-        I'm Looking For:
-        <select class="form-control" name="">
-          <option>What are you looking for?</option>
-          <option>Friends</option>
-          <option>A Relationship</option>
-          <option>True Love</option>
-          <option>A Good Time</option>
-          <option>Anything</option>
-        </select>
-      </div>
-      </div>
-    </li>
-  </ul>
-  <div class="card-body">
-    <button type="submit" class="btn btn-info">Update Profile</button>
-    <button type="submit" class="btn btn-info">Delete Profile</button>
-    <div class="form-check form-check-inline ml-3">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-  <label class="form-check-label" for="inlineCheckbox1">Hide your Message Box</label>
-</div>
-<div class="form-check form-check-inline ml-3">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-  <label class="form-check-label" for="inlineCheckbox2">Hide Location</label>
-</div>
+    </div>
+  </form>
   </div>
 </div>
-</div>
-your sharable url - copied!
-Total hearts: count
+your sharable url - copied! Total hearts: count
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//geodata.solutions/includes/countrystatecity.js"></script>
