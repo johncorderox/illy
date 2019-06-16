@@ -23,7 +23,7 @@ end
     new_user = User.new(username: params[:username], email: params[:email], password: params[:password])
       if new_user.save
         session[:user_id] = new_user.id
-        redirect_to "#{session[:user_id]}/edit_profile/"
+        redirect_to "/edit/#{session[:user_id]}"
       else
         redirect_back(fallback_location: root_path)
         flash[:notice] = new_user.errors.full_messages
