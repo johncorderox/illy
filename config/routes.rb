@@ -18,7 +18,10 @@ Rails.application.routes.draw do
   delete '/logout'      => 'sessions#destroy'
 
   # Welcome
-  get '/welcome' => 'etc#welcome'
+  get '/welcome'        => 'etc#welcome'
+
+  # Admin Dashboard
+  get '/admin'          => 'admin#index'
 
   resources :courses
 

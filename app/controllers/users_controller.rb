@@ -11,13 +11,13 @@ class UsersController < ApplicationController
   end
 
   def update
-  if @update_user = User.find(params[:id]).update(user_params)
-    flash[:success] = "Successfully Saved"
-  else
-    puts "#{@update_user.errors.full_messages}"
+    if @update_user = User.find(params[:id]).update(user_params)
+      flash[:success] = "Successfully Saved"
+    else
+      puts "#{@update_user.errors.full_messages}"
+    end
+    redirect_back(fallback_location: root_path)
   end
-  redirect_back(fallback_location: root_path)
-end
 
   def create
     new_user = User.new(username: params[:username], email: params[:email], password: params[:password])
